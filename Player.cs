@@ -53,9 +53,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other) 
     {
-        if (collision.gameObject.tag == "obstacle")
+        if (other.gameObject.tag == "obstacle")
         {
             audioSource.PlayOneShot(sfxDeath);
             rigidBody.AddForce(new Vector2(50, 20), ForceMode.Impulse);
@@ -64,9 +64,9 @@ public class Player : MonoBehaviour
             GameManager.instance.PlayerCollided();
         }
 
-        else if (collision.gameObject.tag=="coin")
+        else if (other.gameObject.tag=="coin")
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             //collision.rigidBody.detectCollisions = false;
             GameManager.instance.CollectCoin();
         }

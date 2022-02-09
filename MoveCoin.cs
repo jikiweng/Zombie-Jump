@@ -15,7 +15,7 @@ public class MoveCoin : MovePlatform
     {
         if (GameManager.instance.PlayerActive)
             base.Update();
-        if (transform.localPostion.x = resetPosition)
+        if (transform.position.x == ResetPosition)
         {
             //rigidBoby.detectCollisions = true;
             gameObject.SetActive(true);

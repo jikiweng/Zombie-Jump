@@ -8,15 +8,12 @@ public class MovePlatform : MonoBehaviour
     [SerializeField] private float resetPosition = 50.0f;
     [SerializeField] private float startPosition = -79.0f;
 
-    public float ResetPosition;
-    {
-        get { return resetPosition; }
-    }
+    public float ResetPosition { get { return resetPosition; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,7 +21,7 @@ public class MovePlatform : MonoBehaviour
     {
         if (!GameManager.instance.GameOver)
         {
-            transform.Translate(Vector3.right * objectSpeed * Time.deltaTime,Space.World);
+            transform.Translate(Vector3.right * objectSpeed * Time.deltaTime, Space.World);
 
             if (transform.localPosition.x >= resetPosition)
             {
